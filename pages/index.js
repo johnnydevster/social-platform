@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "next";
 import Layout from "../components/layout/Layout";
-import Sidebar from "../components/layout/Sidebar";
+import Sidebar from "../components/layout/sidebar/Sidebar";
 
 export default function Home() {
   return (
