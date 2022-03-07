@@ -4,19 +4,19 @@ export default function Nav() {
   return (
     <nav className="h-16 bg-primary-200 flex justify-between fixed w-full font-bold text-lg text-primary-700">
       <ul className="flex items-center ml-16">
-        <li>
+        <li className="">
           <Link href="/">
-            <a>
+            <a className="flex items-center hover:text-primary-500 transition-all">
               <span className="material-icons">home</span>
-              <span>Hem</span>
+              <span className="ml-1">Hem</span>
             </a>
           </Link>
         </li>
-        <li>
+        <li className="ml-5">
           <Link href="/annonser">
-            <a>
-              <span class="material-icons">assignment</span>
-              <span>Annonser</span>
+            <a className="flex items-center hover:text-primary-500 transition-all">
+              <span className="material-icons">assignment</span>
+              <span className="ml-1">Annonser</span>
             </a>
           </Link>
         </li>
