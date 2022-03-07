@@ -1,15 +1,27 @@
-import Link from "next";
+import Link from "next/link";
 
 export default function Nav() {
   return (
-    <nav className="h-16 bg-primary-200 flex justify-center fixed w-full">
-      <ul className="flex flex-grow-1 items-center justify-between w-72 text-lg font-bold text-primary-700">
+    <nav className="h-16 bg-primary-200 flex justify-between fixed w-full font-bold text-lg text-primary-700">
+      <ul className="flex items-center ml-16">
         <li>
-          <a>Hem</a>
+          <Link href="/">
+            <a>
+              <span className="material-icons">home</span>
+              <span>Hem</span>
+            </a>
+          </Link>
         </li>
         <li>
-          <a>Annonser</a>
+          <Link href="/annonser">
+            <a>
+              <span class="material-icons">assignment</span>
+              <span>Annonser</span>
+            </a>
+          </Link>
         </li>
+      </ul>
+      <ul className="flex items-center mr-16">
         <li>
           <a>Logga in</a>
         </li>
