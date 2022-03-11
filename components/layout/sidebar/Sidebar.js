@@ -13,23 +13,17 @@ export default function Sidebar() {
           <ul className="flex flex-col space-y-3">
             <Link href="/random">
               <a>
-                <li className="hover:bg-primary-50 hover:font-semibold p-2 rounded">
-                  Sublink 1
-                </li>
+                <li className="hover:bg-primary-50 p-2 rounded">Sublink 1</li>
               </a>
             </Link>
             <Link href="">
               <a>
-                <li className="hover:bg-primary-50 hover:font-semibold p-2 rounded">
-                  Sublink 2
-                </li>
+                <li className="hover:bg-primary-50 p-2 rounded">Sublink 2</li>
               </a>
             </Link>
             <Link href="">
               <a>
-                <li className="hover:bg-primary-50 hover:font-semibold p-2 rounded">
-                  Sublink 3
-                </li>
+                <li className="hover:bg-primary-50 p-2 rounded">Sublink 3</li>
               </a>
             </Link>
           </ul>
@@ -43,23 +37,17 @@ export default function Sidebar() {
           <ul className="flex flex-col space-y-3">
             <Link href="">
               <a>
-                <li className="hover:bg-primary-50 hover:font-semibold p-2 rounded">
-                  Sublink 1
-                </li>
+                <li className="hover:bg-primary-50 p-2 rounded">Sublink 1</li>
               </a>
             </Link>
             <Link href="">
               <a>
-                <li className="hover:bg-primary-50 hover:font-semibold p-2 rounded">
-                  Sublink 2
-                </li>
+                <li className="hover:bg-primary-50 p-2 rounded">Sublink 2</li>
               </a>
             </Link>
             <Link href="">
               <a>
-                <li className="hover:bg-primary-50 hover:font-semibold p-2 rounded">
-                  Sublink 3
-                </li>
+                <li className="hover:bg-primary-50 p-2 rounded">Sublink 3</li>
               </a>
             </Link>
           </ul>
@@ -73,23 +61,17 @@ export default function Sidebar() {
           <ul className="flex flex-col space-y-3">
             <Link href="">
               <a>
-                <li className="hover:bg-primary-50 hover:font-semibold p-2 rounded">
-                  Sublink 1
-                </li>
+                <li className="hover:bg-primary-50 p-2 rounded">Sublink 1</li>
               </a>
             </Link>
             <Link href="">
               <a>
-                <li className="hover:bg-primary-50 hover:font-semibold p-2 rounded">
-                  Sublink 2
-                </li>
+                <li className="hover:bg-primary-50 p-2 rounded">Sublink 2</li>
               </a>
             </Link>
             <Link href="">
               <a>
-                <li className="hover:bg-primary-50 hover:font-semibold p-2 rounded">
-                  Sublink 3
-                </li>
+                <li className="hover:bg-primary-50 p-2 rounded">Sublink 3</li>
               </a>
             </Link>
           </ul>
