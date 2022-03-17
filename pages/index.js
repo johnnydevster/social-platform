@@ -3,7 +3,7 @@ import { Link } from "next";
 import Layout from "../components/layout/Layout";
 import Sidebar from "../components/layout/sidebar/Sidebar";
 
-export default function Home() {
+export default function Home({ upcomingGames }) {
   return (
     <Layout>
       <Sidebar />
@@ -12,4 +12,17 @@ export default function Home() {
       </div>
     </Layout>
   );
+}
+
+export async function getStaticProps(context) {
+  const upcomingGames = fetch("http://localhost:3000/api/auth")
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    });
+  return {
+    props: {}, // will be passed to the page component as props
+  };
 }
