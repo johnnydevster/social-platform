@@ -1,4 +1,5 @@
 import * as admin from "firebase-admin";
+import { Timestamp } from "firebase/firestore";
 const serviceAccount = require("./serviceworker.json");
 
 // When using firebase on the server, you should ONLY use the 'firebase-admin' variant of the firebase package
@@ -12,23 +13,42 @@ if (!admin.apps.length) {
 
 const db = admin.firestore();
 
-async function uploadToken({ token, expiresIn }) {
+async function uploadToken({ access_token, expires_in }) {
+  const currentTime = Timestamp.now().seconds;
+  const expirationTime = currentTime + expires_in;
+
   const docRef = db.collection("auth").doc("token");
 
   await docRef.set({
-    token,
-    expiresIn,
+    token: access_token,
+    expirationTime,
   });
 }
 
-async function addUser() {
-  const docRef = db.collection("users").doc("alovelace");
+async function getToken() {
+  const currentTime = Timestamp.now().seconds;
+  const tokenRef = db.collection("auth").doc("token");
+  const doc = await tokenRef.get();
 
-  await docRef.set({
-    first: "Ola",
-    last: "Lovelace",
-    born: 1815,
-  });
+  if (!doc.exists) {
+    console.log("Couldn't find token");
+  } else {
+    return doc.data().expirationTime - currentTime;
+  }
 }
 
-export { db, addUser };
+async function secondsUntilTokenExpires() {
+  const currentTime = Timestamp.now().seconds;
+  console.log(currentTime);
+
+  const tokenRef = db.collection("auth").doc("token");
+  const doc = await tokenRef.get();
+
+  if (!doc.exists) {
+    console.log("Couldn't find token");
+  } else {
+    return doc.data().expirationTime - currentTime;
+  }
+}
+
+export { db, uploadToken, getToken, secondsUntilTokenExpires };
