@@ -20,7 +20,9 @@ export default async function getAccessToken() {
       console.log("Token uploaded successfully");
       return data.access_token;
     } catch (err) {
-      console.log(`Token request failed: ${err}`);
+      console.log(
+        `Error getting token from Twitch API: ${err.status}: ${err.statusText}`
+      );
     }
   }
 }

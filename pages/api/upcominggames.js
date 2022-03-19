@@ -1,8 +1,13 @@
+import apiRequest from "../../utils/apiRequest";
 import getAccessToken from "../../utils/getAccessToken";
-import { uploadToken, secondsUntilTokenExpires } from "../../firebase";
 
 export default async function handler(req, res) {
   const token = await getAccessToken();
-
-  res.status(200).json({ message: "hello" });
+  if (token) {
+    const body = "fields name; limit 100;";
+    const data = await apiRequest(token, "games", body);
+    res.status(200).json(data);
+  } else {
+    res.status(500).json({ message: "internal server error" });
+  }
 }

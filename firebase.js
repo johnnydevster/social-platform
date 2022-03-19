@@ -26,21 +26,18 @@ async function uploadToken({ access_token, expires_in }) {
 }
 
 async function getToken() {
-  const currentTime = Timestamp.now().seconds;
   const tokenRef = db.collection("auth").doc("token");
   const doc = await tokenRef.get();
 
   if (!doc.exists) {
     console.log("Couldn't find token");
   } else {
-    return doc.data().expirationTime - currentTime;
+    return doc.data().token;
   }
 }
 
 async function secondsUntilTokenExpires() {
   const currentTime = Timestamp.now().seconds;
-  console.log(currentTime);
-
   const tokenRef = db.collection("auth").doc("token");
   const doc = await tokenRef.get();
 
