@@ -9,7 +9,7 @@ export default function UpcomingGames({ upcomingGames }) {
           <GamePreview
             key={game.id}
             name={game.name}
-            cover={game.coverUrl}
+            cover={game.cover.url}
             rating={game.rating}
             ratingCount={game.rating_count}
             summary={game.summary}

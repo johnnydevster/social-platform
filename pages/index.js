@@ -8,7 +8,7 @@ export default function Home({ upcomingGames }) {
   return (
     <Layout>
       <Sidebar />
-      <div className="p-5 bg-primary-50 rounded-lg col-span-3 lg:col-span-2">
+      <div className="p-5 rounded-lg col-span-3 lg:col-span-2">
         <UpcomingGames upcomingGames={upcomingGames} />
       </div>
     </Layout>

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Nav() {
   return (
-    <nav className="h-16 bg-gray-50 flex justify-center fixed w-full font-bold text-primary-700">
+    <nav className="h-16 bg-gray-50 flex justify-center fixed z-40 w-full font-bold text-primary-700">
       <div className="flex h-full max-w-7xl grow">
         <ul className="flex mx-5 space-x-6 items-center grow">
           <li className="">
