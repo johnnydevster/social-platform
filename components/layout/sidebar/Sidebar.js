@@ -16,12 +16,12 @@ export default function Sidebar() {
                 <li className="hover:bg-primary-50 p-2 rounded">Sublink 1</li>
               </a>
             </Link>
-            <Link href="">
+            <Link href="/">
               <a>
                 <li className="hover:bg-primary-50 p-2 rounded">Sublink 2</li>
               </a>
             </Link>
-            <Link href="">
+            <Link href="/">
               <a>
                 <li className="hover:bg-primary-50 p-2 rounded">Sublink 3</li>
               </a>
@@ -35,17 +35,17 @@ export default function Sidebar() {
           classNames={{ control: "hover:bg-primary-50 rounded" }}
         >
           <ul className="flex flex-col space-y-3">
-            <Link href="">
+            <Link href="/">
               <a>
                 <li className="hover:bg-primary-50 p-2 rounded">Sublink 1</li>
               </a>
             </Link>
-            <Link href="">
+            <Link href="/">
               <a>
                 <li className="hover:bg-primary-50 p-2 rounded">Sublink 2</li>
               </a>
             </Link>
-            <Link href="">
+            <Link href="/">
               <a>
                 <li className="hover:bg-primary-50 p-2 rounded">Sublink 3</li>
               </a>
@@ -59,17 +59,17 @@ export default function Sidebar() {
           classNames={{ control: "hover:bg-primary-50 rounded" }}
         >
           <ul className="flex flex-col space-y-3">
-            <Link href="">
+            <Link href="/">
               <a>
                 <li className="hover:bg-primary-50 p-2 rounded">Sublink 1</li>
               </a>
             </Link>
-            <Link href="">
+            <Link href="/">
               <a>
                 <li className="hover:bg-primary-50 p-2 rounded">Sublink 2</li>
               </a>
             </Link>
-            <Link href="">
+            <Link href="/">
               <a>
                 <li className="hover:bg-primary-50 p-2 rounded">Sublink 3</li>
               </a>

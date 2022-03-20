@@ -23,18 +23,10 @@ export default function Nav() {
           </li>
         </ul>
         <ul className="flex space-x-6 mx-5 items-center justify-end grow">
-          <Link
-            href={`https://id.twitch.tv/oauth2/authorize
-    ?client_id=${process.env.TWITCH_CLIENT_ID}>
-    &redirect_uri=http://localhost:3000
-    &response_type=token
-    &scope=user:read:email`}
-          >
-            <a className="flex items-center hover:underline transition-all">
-              <span className="material-icons">account_circle</span>
-              <span className="ml-1">Logga in</span>
-            </a>
-          </Link>
+          <a className="flex items-center hover:underline transition-all">
+            <span className="material-icons">account_circle</span>
+            <span className="ml-1">Logga in</span>
+          </a>
         </ul>
       </div>
     </nav>
