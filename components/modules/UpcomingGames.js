@@ -13,6 +13,7 @@ export default function UpcomingGames({ upcomingGames }) {
             rating={game.rating}
             ratingCount={game.rating_count}
             summary={game.summary}
+            genres={game.genres}
           />
         );
       })}

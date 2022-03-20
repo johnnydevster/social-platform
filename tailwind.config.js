@@ -10,6 +10,11 @@ module.exports = {
     colors: {
       primary: colors.gray,
       gray: colors.gray,
+      green: colors.green,
+      blue: colors.blue,
+      purple: colors.purple,
+      pink: colors.pink,
+      red: colors.red,
     },
     extend: {
       fontFamily: {
