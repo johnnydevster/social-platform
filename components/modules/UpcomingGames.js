@@ -3,7 +3,7 @@ import GamePreview from "../GamePreview";
 
 export default function UpcomingGames({ upcomingGames }) {
   return (
-    <div>
+    <div className="grid grid-cols-4 gap-4">
       {upcomingGames.map((game) => {
         return (
           <GamePreview
