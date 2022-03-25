@@ -2,28 +2,28 @@ import { useState } from "react";
 import { Link } from "next";
 import Layout from "../components/layout/Layout";
 import Sidebar from "../components/layout/sidebar/Sidebar";
-import UpcomingGames from "../components/modules/UpcomingGames";
+import TopGames from "../components/modules/TopGames";
 
-export default function Home({ upcomingGames }) {
+export default function Home({ topGames }) {
   return (
     <Layout>
       <Sidebar />
       <div className="p-5 rounded-lg col-span-3 lg:col-span-2">
-        <UpcomingGames upcomingGames={upcomingGames} />
+        <TopGames topGames={topGames} />
       </div>
     </Layout>
   );
 }
 
 export async function getStaticProps(context) {
-  const upcomingGamesResponse = await fetch(
+  const topGamesResponse = await fetch(
     "http://localhost:3000/api/upcominggames"
   );
-  const upcomingGames = await upcomingGamesResponse.json();
+  const topGames = await topGamesResponse.json();
 
   return {
     props: {
-      upcomingGames,
+      topGames,
     }, // will be passed to the page component as props
   };
 }
