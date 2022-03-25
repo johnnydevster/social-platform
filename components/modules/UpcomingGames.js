@@ -1,22 +1,19 @@
 import React from "react";
-import GamePreview from "../GamePreview";
+import GamePreviewHero from "../GamePreviewHero";
 
 export default function UpcomingGames({ upcomingGames }) {
   return (
     <div className="grid grid-cols-4 gap-4">
-      {upcomingGames.map((game) => {
-        return (
-          <GamePreview
-            key={game.id}
-            name={game.name}
-            cover={game.cover.url}
-            rating={game.rating}
-            ratingCount={game.rating_count}
-            summary={game.summary}
-            genres={game.genres}
-          />
-        );
-      })}
+      <h1 className="font-bold text-lg">Upcoming games</h1>
+      <GamePreviewHero
+        key={upcomingGames[0].id}
+        name={upcomingGames[0].name}
+        cover={upcomingGames[0].cover.url}
+        rating={upcomingGames[0].rating}
+        ratingCount={upcomingGames[0].rating_count}
+        summary={upcomingGames[0].summary}
+        genres={upcomingGames[0].genres}
+      />
     </div>
   );
 }
