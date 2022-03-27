@@ -1,4 +1,4 @@
-import Badge from "../utils/Badge";
+import Badge from "./utils/Badge";
 
 function BadgeDisplay({ badges }) {
   return (

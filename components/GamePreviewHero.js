@@ -1,5 +1,6 @@
 import Image from "next/image";
-import BadgeDisplay from "./layout/BadgeDisplay";
+import Link from "next/link";
+import BadgeDisplay from "./BadgeDisplay";
 
 function GamePreviewHero({
   name,
@@ -33,12 +34,15 @@ function GamePreviewHero({
           </div>
 
           <div className="px-4 flex flex-col justify-between">
-            <div className="">
+            <div className="overflow-hidden text-ellipsis max-h-34">
               <h2 className="font-semibold text-primary-800">{name}</h2>
-              <p className="text-sm py-3 text-gray-600 max-h-36">
+              <p className="text-sm pt-3 text-gray-600">
                 {truncatedSummary.join(" ")}
                 {truncatedSummary.length >= 35 && <span>...</span>}
               </p>
+              <Link href="/">
+                <a className="font-semibold text-blue-400">Go to summary</a>
+              </Link>
             </div>
             <div className="">
               <BadgeDisplay badges={genres} />
@@ -50,7 +54,7 @@ function GamePreviewHero({
           <h1 className="text-5xl text-white font-extrabold">
             {Math.floor(rating)}
           </h1>
-          <h2 className="font-bold text-xs mt-2 text-green-900">
+          <h2 className="font-semibold text-xs mt-2 text-white">
             {ratingCount} reviews
           </h2>
         </div>
