@@ -40,10 +40,10 @@ function GamePreviewHero({
                 {truncatedSummary.join(" ")}
                 {truncatedSummary.length >= 35 && <span>...</span>}
               </p>
-              <Link href="/">
-                <a className="font-semibold text-blue-400">Go to summary</a>
-              </Link>
             </div>
+            <Link href="/">
+              <a className="font-semibold text-blue-400">Go to summary</a>
+            </Link>
             <div className="">
               <BadgeDisplay badges={genres} />
               <p className="text-gray-500 text-sm"></p>

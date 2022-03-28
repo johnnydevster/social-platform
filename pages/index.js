@@ -8,7 +8,7 @@ export default function Home({ topGames }) {
   return (
     <Layout>
       <Sidebar />
-      <div className="p-5 rounded-lg col-span-3 lg:col-span-2">
+      <div className="lg:p-5 rounded-lg col-span-3 lg:col-span-2">
         <TopGames topGames={topGames} />
       </div>
     </Layout>
