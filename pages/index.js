@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { Link } from "next";
 import Layout from "../components/layout/Layout";
 import Sidebar from "../components/layout/sidebar/Sidebar";
 import TopGames from "../components/modules/TopGames";
@@ -17,7 +15,7 @@ export default function Home({ topGames }) {
 
 export async function getStaticProps(context) {
   const topGamesResponse = await fetch(
-    "http://localhost:3000/api/upcominggames"
+    `${process.env.API_ENDPOINT}/upcominggames`
   );
   const topGames = await topGamesResponse.json();
 

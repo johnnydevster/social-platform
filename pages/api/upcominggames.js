@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   if (token) {
     try {
       const gameBody =
-        "fields name,summary,rating,rating_count,cover.url,screenshots.url,genres.name; where category = 0 & rating > 75; sort rating_count desc; limit 100;";
+        "fields name,summary,rating,rating_count,cover.url,screenshots.url,genres.name,slug; where category = 0 & rating > 75; sort rating_count desc; limit 100;";
       const gameData = await apiRequest(token, "games", gameBody);
 
       const urlCorrectedData = gameData.map((game) => {
