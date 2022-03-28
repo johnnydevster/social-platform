@@ -16,6 +16,7 @@ export default function TopGames({ topGames }) {
         ratingCount={heroGame.rating_count}
         summary={heroGame.summary}
         genres={heroGame.genres}
+        slug={heroGame.slug}
       />
       <GameList topGames={top9Games} />
     </div>

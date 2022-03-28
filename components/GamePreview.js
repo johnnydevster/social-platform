@@ -1,4 +1,4 @@
-import React from "react";
+import Link from "next/link";
 import BadgeDisplay from "./BadgeDisplay";
 
 export default function GamePreview({
@@ -9,6 +9,7 @@ export default function GamePreview({
   ratingCount,
   summary,
   genres,
+  slug,
 }) {
   return (
     <div className="flex justify-between m-1 py-2 bg-gray-50 rounded">
@@ -19,7 +20,9 @@ export default function GamePreview({
         <div className="bg-green-500 rounded text-white font-bold p-2">
           <h2>{Math.floor(rating)}</h2>
         </div>
-        <h3 className="font-semibold p-2">{name}</h3>
+        <Link href={`/games/${slug}`}>
+          <a className="font-semibold p-2">{name}</a>
+        </Link>
       </div>
       <BadgeDisplay
         badges={genres}

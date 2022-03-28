@@ -1,6 +1,7 @@
 import Layout from "../components/layout/Layout";
 import Sidebar from "../components/layout/sidebar/Sidebar";
 import TopGames from "../components/modules/TopGames";
+import getTopGames from "../utils/getTopGames";
 
 export default function Home({ topGames }) {
   return (
@@ -14,10 +15,7 @@ export default function Home({ topGames }) {
 }
 
 export async function getStaticProps(context) {
-  const topGamesResponse = await fetch(
-    `${process.env.API_ENDPOINT}/upcominggames`
-  );
-  const topGames = await topGamesResponse.json();
+  const topGames = (await getTopGames()) || null;
 
   return {
     props: {

@@ -9,6 +9,7 @@ function GamePreviewHero({
   ratingCount,
   summary,
   genres,
+  slug,
 }) {
   const truncatedSummary = summary.split(" ").slice(0, 35);
   return (
@@ -26,6 +27,7 @@ function GamePreviewHero({
         <div className="flex p-4">
           <div className="flex flex-shrink-0">
             <Image
+              alt={`game cover for ${name}`}
               src={cover}
               height={140}
               width={120}
@@ -35,14 +37,20 @@ function GamePreviewHero({
 
           <div className="px-4 flex flex-col justify-between">
             <div className="overflow-hidden text-ellipsis max-h-34">
-              <h2 className="font-semibold text-primary-800">{name}</h2>
+              <Link href={`games/${slug}`}>
+                <a className="hover:underline font-semibold text-primary-800">
+                  {name}
+                </a>
+              </Link>
               <p className="text-sm pt-3 text-gray-600">
                 {truncatedSummary.join(" ")}
                 {truncatedSummary.length >= 35 && <span>...</span>}
               </p>
             </div>
-            <Link href="/">
-              <a className="font-semibold text-blue-400">Go to summary</a>
+            <Link href={`/games/${slug}`}>
+              <a className="hover:underline font-semibold text-blue-400">
+                Go to summary
+              </a>
             </Link>
             <div className="">
               <BadgeDisplay badges={genres} />

@@ -1,4 +1,5 @@
 import React from "react";
+import getGameInfo from "../../utils/getGameInfo";
 
 export default function Game({ gameData }) {
   return (
@@ -22,14 +23,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const response = await fetch(
-    `${process.env.API_ENDPOINT}/game?slug=${params.slug}`
-  );
-  const data = await response.json();
-  console.log(data);
+  const gameData = (await getGameInfo(params.slug)) || null;
   return {
     props: {
-      gameData: data,
+      gameData,
     }, // will be passed to the page component as props
   };
 }

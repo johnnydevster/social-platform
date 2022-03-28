@@ -15,6 +15,7 @@ export default function GameList({ topGames }) {
             ratingCount={game.rating_count}
             summary={game.summary}
             genres={game.genres}
+            slug={game.slug}
           />
         );
       })}
