@@ -1,19 +1,49 @@
 import React from "react";
+import Image from "next/image";
+
+import Layout from "../../components/layout/Layout";
+import Sidebar from "../../components/layout/sidebar/Sidebar";
 import getGameInfo from "../../utils/getGameInfo";
+import getTopGames from "../../utils/getTopGames";
+import Error from "../_error";
 
 export default function Game({ gameData }) {
-  return (
-    <div>
-      <h1>{gameData?.name}</h1>
-      <p>{gameData?.summary}</p>
-    </div>
-  );
+  if (gameData) {
+    return (
+      <Layout>
+        <Sidebar />
+        <div className="lg:p-5 rounded-lg col-span-3 lg:col-span-2">
+          {/* Game details hero component */}
+          <div className="bg-primary-50 h-96 flex flex-col rounded">
+            <div className="bg-primary-500 rounded-t flex items-center">
+              <div className="bg-green-500 text-white text-2xl rounded-tl font-bold p-5">
+                <h2>{Math.floor(gameData.rating)}</h2>
+              </div>
+              <h1 className="text-primary-50 font-bold">{gameData.name}</h1>
+            </div>
+            <div className="p-4 h-full flex">
+              <div className="bg-primary-400 w-48 rounded relative">
+                <Image
+                  layout="fill"
+                  src={gameData.cover.url}
+                  className="object-cover rounded"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* /Game details hero component */}
+        </div>
+      </Layout>
+    );
+  }
+  return <Error statusCode="404" />;
 }
 
 export async function getStaticPaths() {
-  const response = await fetch(`${process.env.API_ENDPOINT}/upcominggames`);
-  const data = await response.json();
-  const paths = data.map((game) => {
+  const gameData = (await getTopGames()) || null;
+
+  const paths = gameData.map((game) => {
     return { params: { slug: game.slug } };
   });
   return {
@@ -24,6 +54,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const gameData = (await getGameInfo(params.slug)) || null;
+  if (!gameData) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
       gameData,

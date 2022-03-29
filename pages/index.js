@@ -14,7 +14,7 @@ export default function Home({ topGames }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const topGames = (await getTopGames()) || null;
 
   return {

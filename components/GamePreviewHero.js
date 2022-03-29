@@ -37,7 +37,7 @@ function GamePreviewHero({
 
           <div className="px-4 flex flex-col justify-between">
             <div className="overflow-hidden text-ellipsis max-h-34">
-              <Link href={`games/${slug}`}>
+              <Link href={`/games/${slug}`}>
                 <a className="hover:underline font-semibold text-primary-800">
                   {name}
                 </a>
