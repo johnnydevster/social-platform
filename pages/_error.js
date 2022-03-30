@@ -1,10 +1,16 @@
+import Layout from "../components/layout/Layout";
+import Sidebar from "../components/layout/sidebar/Sidebar";
+
 function Error({ statusCode }) {
   return (
-    <p>
-      {statusCode
-        ? `An error ${statusCode} occurred on server`
-        : "An error occurred on client"}
-    </p>
+    <Layout>
+      <Sidebar />
+      <p>
+        {statusCode
+          ? `An error ${statusCode} occurred on server`
+          : "An error occurred on client"}
+      </p>
+    </Layout>
   );
 }
 
