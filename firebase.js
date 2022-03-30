@@ -16,13 +16,14 @@ const db = admin.firestore();
 async function uploadToken({ access_token, expires_in }) {
   const currentTime = Timestamp.now().seconds;
   const expirationTime = currentTime + expires_in;
-
   const docRef = db.collection("auth").doc("token");
-
-  await docRef.set({
+  const token = {
     token: access_token,
     expirationTime,
-  });
+  };
+
+  await docRef.set(token);
+  return token;
 }
 
 async function getToken() {
@@ -32,20 +33,8 @@ async function getToken() {
   if (!doc.exists) {
     console.log("Couldn't find token");
   } else {
-    return doc.data().token;
+    return doc.data();
   }
 }
 
-async function secondsUntilTokenExpires() {
-  const currentTime = Timestamp.now().seconds;
-  const tokenRef = db.collection("auth").doc("token");
-  const doc = await tokenRef.get();
-
-  if (!doc.exists) {
-    console.log("Couldn't find token");
-  } else {
-    return doc.data().expirationTime - currentTime;
-  }
-}
-
-export { db, uploadToken, getToken, secondsUntilTokenExpires };
+export { db, uploadToken, getToken };

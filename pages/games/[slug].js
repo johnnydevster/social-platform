@@ -12,6 +12,7 @@ import Error from "../_error";
 
 export default function Game({ gameData }) {
   const router = useRouter();
+  // fallback ui to render if
   if (router.isFallback) {
     return (
       <Layout>
