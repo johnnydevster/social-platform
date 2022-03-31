@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html className="text-primary-800">
+    <Html className="text-primary-800 text-sm lg:text-base">
       <Head />
       <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       <link

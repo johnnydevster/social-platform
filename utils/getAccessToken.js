@@ -26,10 +26,6 @@ async function getNewTokenFromTwitch() {
   }
 }
 
-async function writeTokenToCache(token) {
-  fs.writeFileSync(path.join(TOKEN_CACHE_PATH), JSON.stringify(token), "utf8");
-}
-
 export default async function getAccessToken() {
   let cachedToken;
   const currentTime = Timestamp.now().seconds;
@@ -56,7 +52,11 @@ export default async function getAccessToken() {
     }
 
     try {
-      writeTokenToCache(token);
+      fs.writeFileSync(
+        path.join(TOKEN_CACHE_PATH),
+        JSON.stringify(token),
+        "utf8"
+      );
     } catch (err) {
       console.log(`Error writing token to cache: ${err}`);
       console.log("Returning token directly instead...");
