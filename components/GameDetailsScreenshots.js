@@ -6,15 +6,17 @@ import Image from "next/image";
 export default function GameDetailsScreenshots({ screenshots }) {
   return (
     <div className="">
-      <Carousel infiniteLoop>
-        {screenshots.map((screenshot) => {
-          return (
-            <div key={screenshot.id} className="w-full h-96">
-              <Image objectFit="cover" layout="fill" src={screenshot.url} />
-            </div>
-          );
-        })}
-      </Carousel>
+      {screenshots && (
+        <Carousel infiniteLoop>
+          {screenshots?.map((screenshot) => {
+            return (
+              <div key={screenshot.id} className="w-full h-96">
+                <Image objectFit="cover" layout="fill" src={screenshot.url} />
+              </div>
+            );
+          })}
+        </Carousel>
+      )}
     </div>
   );
 }

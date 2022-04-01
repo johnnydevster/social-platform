@@ -13,11 +13,13 @@ export default async function getGameInfo(slug) {
           correctedData.cover.url = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.url.slice(
             -10
           )}`;
+
           const screenshots = game.screenshots.map((screenshot) => {
             const correctedScreenshot = { ...screenshot };
+            const filename = screenshot.url.split("/").slice(-1);
             correctedScreenshot.url =
               "https://images.igdb.com/igdb/image/upload/t_screenshot_med/" +
-              screenshot.url.slice(-24);
+              filename;
             return correctedScreenshot;
           });
           correctedData.screenshots = screenshots;

@@ -23,7 +23,7 @@ export default function Game({ gameData }) {
           <h2 className="font-bold mb-2 text-gray-600">Summary</h2>
           <p className="px-2">{gameData?.summary || null}</p>
         </div>
-        <GameDetailsScreenshots screenshots={gameData.screenshots} />
+        <GameDetailsScreenshots screenshots={gameData?.screenshots} />
       </div>
     </Layout>
   );
