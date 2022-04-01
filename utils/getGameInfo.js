@@ -5,7 +5,7 @@ export default async function getGameInfo(slug) {
   const token = await getAccessToken();
   if (token) {
     try {
-      const body = `fields name,summary,rating,rating_count,cover.url,screenshots.url,genres.name,slug,platforms.name,websites.url; where slug = "${slug}";`;
+      const body = `fields name,summary,rating,rating_count,cover.url,screenshots.url,genres.name,slug,platforms.name,websites.url,release_dates.human,involved_companies.company.name,involved_companies.developer; where slug = "${slug}";`;
       const data = await apiRequest(token, "games", body);
       if (data.length > 0) {
         const urlCorrectedData = data.map((game) => {

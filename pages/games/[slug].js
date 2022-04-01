@@ -19,7 +19,7 @@ export default function Game({ gameData }) {
       <div className="rounded-lg col-span-3 lg:col-span-2">
         <GameDetailsHero fallback={router.isFallback} gameData={gameData} />
         <h2>Summary</h2>
-        <p>{gameData.summary}</p>
+        <p>{gameData?.summary || null}</p>
       </div>
     </Layout>
   );
