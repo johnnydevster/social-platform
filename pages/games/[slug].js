@@ -8,20 +8,31 @@ import getTopGames from "../../utils/getTopGames";
 import GameDetailsHero from "../../components/GameDetailsHero";
 import GameDetailsScreenshots from "../../components/GameDetailsScreenshots";
 import GameDetailsOtherGames from "../../components/GameDetailsOtherGames";
+import { Badge } from "@mantine/core";
+import Head from "next/head";
+import GameDetailsInfo from "../../components/GameDetailsInfo";
 
 export default function Game({ gameData }) {
   const router = useRouter();
-
+  //const router = { isFallback: true };
   return (
     <Layout>
+      <Head>
+        <title>{gameData?.name}</title>
+      </Head>
       <Sidebar />
       <div className="rounded-lg col-span-3 lg:col-span-2">
         <GameDetailsHero fallback={router.isFallback} gameData={gameData} />
-        <div className="py-6 md:py-10">
-          <h2 className="font-bold mb-2 text-gray-600">Summary</h2>
-          <p className="px-2">{gameData?.summary || null}</p>
+        <div className="flex p-2 md:p-6 ">
+          <GameDetailsInfo fallback={router.isFallback} gameData={gameData} />
+          <div className="bg-green-500 text-5xl font-extrabold text-white rounded w-1/3 flex items-center justify-center">
+            <h1>Score</h1>
+          </div>
         </div>
-        <GameDetailsScreenshots screenshots={gameData?.screenshots} />
+        <GameDetailsScreenshots
+          fallback={router.isFallback}
+          screenshots={gameData?.screenshots}
+        />
         <GameDetailsOtherGames />
       </div>
     </Layout>

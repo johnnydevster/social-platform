@@ -34,11 +34,8 @@ export default function GameDetailsHero({ gameData, fallback }) {
 
   return (
     <div className="bg-primary-50 flex flex-col rounded">
-      <div className="bg-primary-500 rounded-t flex items-center">
-        <div className="bg-green-500 text-white text-2xl rounded-tl font-bold p-3">
-          <h2>{Math.floor(gameData?.rating || null)}</h2>
-        </div>
-        <h1 className="text-primary-50 font-bold ml-2">
+      <div className="bg-primary-500 rounded-t flex items-center h-14">
+        <h1 className="text-primary-50 font-bold mx-4 md:text-lg">
           {gameData?.name || null}
         </h1>
       </div>
@@ -51,47 +48,20 @@ export default function GameDetailsHero({ gameData, fallback }) {
             className="object-cover md:rounded"
           />
         </div>
-
-        <ul className="w-full grid md:grid-cols-2 gap-2 p-2 md:p-4 text-sm">
-          <li>
-            <h3 className="font-semibold">Released</h3>
-            <span>{gameData?.release_dates[0]?.human || null}</span>
+        <ul className="p-4 md:p-6">
+          <li className="mb-3 flex space-x-6">
+            <div>
+              <h2 className="font-bold text-gray-600">Released</h2>
+              <span>{gameData.release_dates[0].human}</span>
+            </div>
+            <div>
+              <h2 className="font-bold text-gray-600">Developed by</h2>
+              <span>{developers[0]}</span>
+            </div>
           </li>
           <li>
-            <h3 className="font-semibold">Platforms</h3>
-            {gameData?.platforms?.map((platform) => {
-              return (
-                <Badge
-                  key={platform.id}
-                  className="bg-primary-200 text-primary-800 mb-1 "
-                >
-                  {platform.name}
-                </Badge>
-              );
-            }) || null}
-          </li>
-          <li>
-            <h3 className="font-semibold">Genre(s)</h3>
-            {gameData?.genres?.map((genre) => {
-              return (
-                <Badge
-                  key={genre.id}
-                  className="bg-primary-200 text-primary-800 mb-1"
-                >
-                  {genre.name}
-                </Badge>
-              );
-            }) || null}
-          </li>
-          <li>
-            <h3 className="font-semibold">Developers</h3>
-            {developers.map((developer) => {
-              return <span key={developer}>{developer}</span>;
-            })}
-          </li>
-          <li>
-            <h3 className="font-semibold">Website</h3>
-            <span>Releasedate</span>
+            <h2 className="font-bold text-gray-600">Summary</h2>
+            <p className="">{gameData?.summary || null}</p>
           </li>
         </ul>
       </div>

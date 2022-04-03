@@ -8,7 +8,7 @@ export default function GameDetailsScreenshots({ screenshots }) {
     <Carousel infiniteLoop>
       {screenshots?.map((screenshot) => {
         return (
-          <div key={screenshot.id} className="w-full h-[480px]">
+          <div key={screenshot.id} className="w-full h-[480px] relative">
             <Image objectFit="cover" layout="fill" src={screenshot.url} />
           </div>
         );
