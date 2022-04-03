@@ -14,7 +14,7 @@ export default function GameDetailsHero({ gameData, fallback }) {
   if (fallback) {
     return (
       <div className="bg-primary-50 flex flex-col rounded">
-        <div className="bg-primary-500 rounded-t flex items-center">
+        <div className="bg-primary-700 rounded-t flex items-center">
           <div className="text-white text-2xl rounded-tl font-bold p-3 h-14 w-14"></div>
         </div>
         <div className="md:p-4 h-full md:flex">
@@ -34,7 +34,7 @@ export default function GameDetailsHero({ gameData, fallback }) {
 
   return (
     <div className="bg-primary-50 flex flex-col rounded">
-      <div className="bg-primary-500 rounded-t flex items-center h-14">
+      <div className="bg-primary-700 rounded-t flex items-center h-14">
         <h1 className="text-primary-50 font-bold mx-4 md:text-lg">
           {gameData?.name || null}
         </h1>

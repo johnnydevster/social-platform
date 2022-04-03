@@ -8,7 +8,7 @@ import getTopGames from "../../utils/getTopGames";
 import GameDetailsHero from "../../components/GameDetailsHero";
 import GameDetailsScreenshots from "../../components/GameDetailsScreenshots";
 import GameDetailsOtherGames from "../../components/GameDetailsOtherGames";
-import { Badge } from "@mantine/core";
+import { Badge, Skeleton } from "@mantine/core";
 import Head from "next/head";
 import GameDetailsInfo from "../../components/GameDetailsInfo";
 
@@ -25,8 +25,19 @@ export default function Game({ gameData }) {
         <GameDetailsHero fallback={router.isFallback} gameData={gameData} />
         <div className="flex p-2 md:p-6 ">
           <GameDetailsInfo fallback={router.isFallback} gameData={gameData} />
-          <div className="bg-green-500 text-5xl font-extrabold text-white rounded w-1/3 flex items-center justify-center">
-            <h1>Score</h1>
+          <div className="w-1/2 flex items-center justify-center">
+            {router.isFallback ? (
+              <Skeleton height={80} circle />
+            ) : (
+              <div className="bg-green-500 h-32 w-32 rounded flex flex-col items-center justify-center shadow-lg">
+                <h1 className="text-5xl font-bold text-green-50 mb-2">
+                  {gameData?.rating && Math.floor(gameData?.rating)}
+                </h1>
+                <p className="text-green-900 font-semibold text-sm">
+                  {gameData?.rating_count} reviews
+                </p>
+              </div>
+            )}
           </div>
         </div>
         <GameDetailsScreenshots
