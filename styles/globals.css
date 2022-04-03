@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    .carousel {
+        height: 200px !important;
+    }
+    .control-dots {
+        background-color: black;
+        color: green;
+        height: 200px !important;
+    }
+    .control-arrow {
+        color: green !important;
+        background: black !important;
+    }
+
+}

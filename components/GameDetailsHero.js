@@ -19,7 +19,6 @@ export default function GameDetailsHero({ gameData, fallback }) {
         </div>
         <div className="md:p-4 h-full md:flex">
           <Skeleton className="bg-primary-400 h-80 w-56 md:rounded relative flex-shrink-0 mx-auto my-2 md:my-0 " />
-
           <ul className="w-full p-4 md:p-8 text-sm flex flex-col space-y-4">
             <Skeleton height={20} width="100%" />
             <Skeleton height={20} width="100%" />

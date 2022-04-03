@@ -1,8 +1,5 @@
 import React from "react";
-import Image from "next/image";
 import { useRouter } from "next/router";
-
-import { Skeleton } from "@mantine/core";
 
 import Layout from "../../components/layout/Layout";
 import Sidebar from "../../components/layout/sidebar/Sidebar";
@@ -10,6 +7,7 @@ import getGameInfo from "../../utils/getGameInfo";
 import getTopGames from "../../utils/getTopGames";
 import GameDetailsHero from "../../components/GameDetailsHero";
 import GameDetailsScreenshots from "../../components/GameDetailsScreenshots";
+import GameDetailsOtherGames from "../../components/GameDetailsOtherGames";
 
 export default function Game({ gameData }) {
   const router = useRouter();
@@ -24,6 +22,7 @@ export default function Game({ gameData }) {
           <p className="px-2">{gameData?.summary || null}</p>
         </div>
         <GameDetailsScreenshots screenshots={gameData?.screenshots} />
+        <GameDetailsOtherGames />
       </div>
     </Layout>
   );

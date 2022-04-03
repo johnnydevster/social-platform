@@ -11,10 +11,9 @@ function GamePreviewHero({
   genres,
   slug,
 }) {
-  const truncatedSummary = summary.split(" ").slice(0, 35);
   return (
     <div className="col-span-4 flex h-56">
-      <div className="relative -top-3 w-32 flex">
+      <div className="relative -top-3 w-32 hidden md:flex">
         <h1 className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-gray-600 font-extrabold z-10 ">
           1
         </h1>
@@ -24,7 +23,7 @@ function GamePreviewHero({
       </div>
 
       <div className="border-2 rounded border-primary-100 w-full flex justify-between">
-        <div className="flex p-4">
+        <div className="flex p-2 sm:p-4">
           <div className="flex flex-shrink-0">
             <Image
               alt={`game cover for ${name}`}
@@ -42,9 +41,8 @@ function GamePreviewHero({
                   {name}
                 </a>
               </Link>
-              <p className="text-sm pt-3 text-gray-600">
-                {truncatedSummary.join(" ")}
-                {truncatedSummary.length >= 35 && <span>...</span>}
+              <p className="text-sm pt-3 text-gray-600 overflow-hidden text-ellipsis">
+                {summary}
               </p>
             </div>
             <Link href={`/games/${slug}`}>
@@ -58,7 +56,7 @@ function GamePreviewHero({
             </div>
           </div>
         </div>
-        <div className="w-32 rounded-r bg-green-500 flex flex-col flex-shrink-0 items-center justify-center">
+        <div className="w-32 rounded-r bg-green-500 hidden md:flex flex-col flex-shrink-0 items-center justify-center">
           <h1 className="text-5xl text-white font-extrabold">
             {Math.floor(rating)}
           </h1>
