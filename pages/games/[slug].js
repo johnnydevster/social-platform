@@ -23,17 +23,17 @@ export default function Game({ gameData }) {
       <Sidebar />
       <div className="rounded-lg col-span-3 lg:col-span-2">
         <GameDetailsHero fallback={router.isFallback} gameData={gameData} />
-        <div className="flex p-2 md:p-6 ">
+        <div className="flex p-2 md:p-6">
           <GameDetailsInfo fallback={router.isFallback} gameData={gameData} />
           <div className="w-1/2 flex items-center justify-center">
             {router.isFallback ? (
               <Skeleton height={80} circle />
             ) : (
-              <div className="bg-green-500 h-32 w-32 rounded flex flex-col items-center justify-center shadow-lg">
-                <h1 className="text-5xl font-bold text-green-50 mb-2">
+              <div className="bg-green-500 p-2 md:p-5 rounded flex flex-col items-center justify-center">
+                <h1 className="text-3xl md:text-5xl font-bold text-green-50 mb-2">
                   {gameData?.rating && Math.floor(gameData?.rating)}
                 </h1>
-                <p className="text-green-900 font-semibold text-sm">
+                <p className="text-green-900 font-semibold text-[10px] md:text-sm">
                   {gameData?.rating_count} reviews
                 </p>
               </div>
