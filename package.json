@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch"
   },
   "dependencies": {
     "@mantine/core": "^3.6.14",
@@ -18,14 +19,18 @@
     "firebase": "^9.6.8",
     "firebase-admin": "^10.0.2",
     "next": "12.1.0",
+    "next-auth": "^4.3.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-responsive-carousel": "^3.2.23"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
     "autoprefixer": "^10.4.2",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
+    "jest": "^27.5.1",
     "postcss": "^8.4.7",
     "tailwindcss": "^3.0.23"
   }
