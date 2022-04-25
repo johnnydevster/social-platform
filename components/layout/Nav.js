@@ -36,13 +36,18 @@ export default function Nav() {
               <span className="ml-1">Log in</span>
             </button>
           ) : (
-            <button
-              className="flex items-center hover:underline transition-all"
-              onClick={() => signOut()}
-            >
-              <span className="material-icons">account_circle</span>
-              <span className="ml-1">Log out</span>
-            </button>
+            <>
+              <Link href={`/profile/${session.user.email}`}>
+                <a>Profile</a>
+              </Link>
+              <button
+                className="flex items-center hover:underline transition-all"
+                onClick={() => signOut()}
+              >
+                <span className="material-icons">account_circle</span>
+                <span className="ml-1">Log out</span>
+              </button>
+            </>
           )}
         </ul>
       </div>

@@ -3,9 +3,6 @@ import { useSession } from "next-auth/react";
 export default function User() {
   const { status } = useSession({
     required: true,
-    onUnauthenticated() {
-      // The user is not authenticated, handle it here.
-    },
   });
 
   if (status === "loading") {
