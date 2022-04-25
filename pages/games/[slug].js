@@ -8,9 +8,10 @@ import getTopGames from "../../utils/getTopGames";
 import GameDetailsHero from "../../components/GameDetailsHero";
 import GameDetailsScreenshots from "../../components/GameDetailsScreenshots";
 import GameDetailsOtherGames from "../../components/GameDetailsOtherGames";
-import { Badge, Skeleton } from "@mantine/core";
+import { Skeleton } from "@mantine/core";
 import Head from "next/head";
 import GameDetailsInfo from "../../components/GameDetailsInfo";
+import GameDetailsRatings from "../../components/GameDetailsRatings";
 
 export default function Game({ gameData }) {
   const router = useRouter();
@@ -40,6 +41,7 @@ export default function Game({ gameData }) {
             )}
           </div>
         </div>
+        <GameDetailsRatings />
         <GameDetailsScreenshots
           fallback={router.isFallback}
           screenshots={gameData?.screenshots}
