@@ -30,7 +30,7 @@ export default function Game({ gameData }) {
             {router.isFallback ? (
               <Skeleton height={80} circle />
             ) : (
-              <div className="bg-green-500 p-2 md:p-5 rounded flex flex-col items-center justify-center">
+              <div className="bg-lime-500 p-2 md:p-5 rounded flex flex-col items-center justify-center">
                 <h1 className="text-3xl md:text-5xl font-bold text-green-50 mb-2">
                   {gameData?.rating && Math.floor(gameData?.rating)}
                 </h1>
