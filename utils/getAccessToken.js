@@ -1,4 +1,7 @@
-import { getToken, uploadToken } from "../firebase";
+import {
+  getToken,
+  uploadToken,
+} from "../lib/firebase-server/firebase-server-firestore";
 import { Timestamp } from "firebase/firestore";
 import fs from "fs";
 import path from "path";
