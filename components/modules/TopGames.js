@@ -1,6 +1,6 @@
 import React from "react";
-import GameList from "../GameList";
-import GamePreviewHero from "../GamePreviewHero";
+import GameList from "../pages/index/GameList";
+import GamePreviewHero from "../pages/index/GamePreviewHero";
 
 export default function TopGames({ topGames }) {
   const heroGame = topGames[0];
