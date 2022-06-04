@@ -5,13 +5,13 @@ import Layout from "../../components/layout/Layout";
 import Sidebar from "../../components/layout/sidebar/Sidebar";
 import getGameInfo from "../../utils/getGameInfo";
 import getTopGames from "../../utils/getTopGames";
-import GameDetailsHero from "../../components/GameDetailsHero";
-import GameDetailsScreenshots from "../../components/GameDetailsScreenshots";
-import GameDetailsOtherGames from "../../components/GameDetailsOtherGames";
+import GameDetailsHero from "../../components/pages/games/GameDetailsHero";
+import GameDetailsScreenshots from "../../components/pages/games/GameDetailsScreenshots";
+import GameDetailsOtherGames from "../../components/pages/games/GameDetailsOtherGames";
 import { Skeleton } from "@mantine/core";
 import Head from "next/head";
-import GameDetailsInfo from "../../components/GameDetailsInfo";
-import GameDetailsRatings from "../../components/GameDetailsRatings";
+import GameDetailsInfo from "../../components/pages/games/GameDetailsInfo";
+import GameDetailsRatings from "../../components/pages/games/GameDetailsRatings";
 
 export default function Game({ gameData }) {
   const router = useRouter();

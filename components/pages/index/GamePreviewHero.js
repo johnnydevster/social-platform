@@ -35,16 +35,13 @@ function GamePreviewHero({
           </div>
 
           <div className="px-4 flex flex-col justify-between">
-            <div className="overflow-hidden text-ellipsis max-h-34">
-              <Link href={`/games/${slug}`}>
-                <a className="hover:underline font-semibold text-primary-800">
-                  {name}
-                </a>
-              </Link>
-              <p className="text-sm pt-3 text-gray-600 overflow-hidden text-ellipsis">
-                {summary}
-              </p>
-            </div>
+            <Link href={`/games/${slug}`}>
+              <a className="hover:underline font-semibold text-primary-800">
+                {name}
+              </a>
+            </Link>
+            <p className="text-sm pt-3 text-gray-600 line-clamp-4">{summary}</p>
+
             <Link href={`/games/${slug}`}>
               <a className="hover:underline font-semibold text-blue-400">
                 Go to summary
