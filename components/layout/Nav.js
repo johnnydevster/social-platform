@@ -1,10 +1,13 @@
 import { Modal } from "@mantine/core";
 import Link from "next/link";
 import { useState } from "react";
+import { useAuth } from "../../lib/hooks/useAuth";
 import LoginCard from "../pages/login/LoginCard";
 
 export default function Nav() {
   const [showLoginModal, setShowLoginModal] = useState();
+  const user = useAuth();
+  console.log(user);
   return (
     <>
       <Modal

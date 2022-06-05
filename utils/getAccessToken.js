@@ -49,24 +49,26 @@ export default async function getAccessToken() {
   if (!cachedToken) {
     const token = await getToken();
 
-    if (token.expirationTime - currentTime < 1) {
-      // firestore token has expired, get a new one and upload it to firestore
-      cachedToken = await getNewTokenFromTwitch();
-    }
-
-    try {
-      fs.writeFileSync(
-        path.join(TOKEN_CACHE_PATH),
-        JSON.stringify(token),
-        "utf8"
+    if (token?.expirationTime - currentTime < 1 || !token) {
+      console.log(
+        "Couldn't find token in firestore, getting it from Twitch instead..."
       );
-    } catch (err) {
-      console.log(`Error writing token to cache: ${err}`);
-      console.log("Returning token directly instead...");
-      return token.token;
+      // firestore token has expired or doesn't exist, get a new one and upload it to firestore
+      const newToken = await getNewTokenFromTwitch();
+
+      try {
+        fs.writeFileSync(
+          path.join(TOKEN_CACHE_PATH),
+          JSON.stringify(newToken),
+          "utf8"
+        );
+      } catch (err) {
+        console.log(`Error writing token to cache: ${err}`);
+        console.log("Returning token directly instead...");
+        return newToken.token;
+      }
     }
-    cachedToken = token;
+    return token.token;
   }
-  console.log(`Got token from cache: ${cachedToken.token}`);
   return cachedToken.token;
 }

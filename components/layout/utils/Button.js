@@ -1,9 +1,15 @@
 import { Button as MantineButton } from "@mantine/core";
 
-export default function Button({ children, className, type = "primary" }) {
+export default function Button({
+  children,
+  className,
+  type,
+  buttonType = "primary",
+  onClick,
+}) {
   let buttonClass;
 
-  switch (type) {
+  switch (buttonType) {
     case "primary":
       buttonClass = "bg-indigo-500 hover:bg-indigo-400";
       break;
@@ -13,7 +19,11 @@ export default function Button({ children, className, type = "primary" }) {
   }
 
   return (
-    <MantineButton className={`text-lg ${buttonClass} ${className} transition`}>
+    <MantineButton
+      type={type}
+      onClick={onClick}
+      className={`${buttonClass} ${className} transition`}
+    >
       {children}
     </MantineButton>
   );

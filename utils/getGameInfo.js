@@ -33,6 +33,6 @@ export default async function getGameInfo(slug) {
       console.error(`Error in request to API: ${err}`);
     }
   } else {
-    console.error("Couldn't get token");
+    console.error("Couldn't get game info: No token");
   }
 }
