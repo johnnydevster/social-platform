@@ -5,12 +5,15 @@ import { auth } from "../../lib/firebase-client/firebase-client-config";
 import { showNotification } from "@mantine/notifications";
 
 import Button from "../layout/utils/Button";
+import { useRouter } from "next/router";
+import { addUser } from "../../lib/firebase-client/firebase-client-firestore";
 
 export default function CreateAccountModule() {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const router = useRouter();
 
   function handleClearFields() {
     setUserName("");
@@ -19,20 +22,28 @@ export default function CreateAccountModule() {
     setRepeatPassword("");
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (password.length > 0 && password === repeatPassword) {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
+          const { uid } = userCredential.user;
+          // Add some custom fields to user in firestore
+          addUser({ uid, userName });
           // Signed in
-          const user = userCredential.user;
-          // ...
+          showNotification({
+            title: "Success",
+            message: "Account successfully created",
+            icon: <i className="material-icons">close</i>,
+            className: "bg-green-500",
+          });
+          router.push("/");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           showNotification({
-            title: "Default notification",
+            title: "Failed",
             message: errorMessage,
             icon: <i className="material-icons">close</i>,
             className: "bg-red-500",

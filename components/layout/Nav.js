@@ -1,13 +1,15 @@
 import { Modal } from "@mantine/core";
+import { signOut } from "firebase/auth";
 import Link from "next/link";
 import { useState } from "react";
+import { auth } from "../../lib/firebase-client/firebase-client-config";
 import { useAuth } from "../../lib/hooks/useAuth";
 import LoginCard from "../pages/login/LoginCard";
 
 export default function Nav() {
   const [showLoginModal, setShowLoginModal] = useState();
-  const user = useAuth();
-  console.log(user);
+  const { user } = useAuth();
+
   return (
     <>
       <Modal
@@ -15,9 +17,7 @@ export default function Nav() {
         opened={showLoginModal}
         onClose={() => setShowLoginModal(false)}
       >
-        <div>
-          <LoginCard />
-        </div>
+        <LoginCard />
       </Modal>
       <nav className="h-16 bg-primary-800 flex justify-center fixed z-40 w-full font-bold text-primary-100">
         <div className="flex h-full max-w-7xl grow">
@@ -40,7 +40,7 @@ export default function Nav() {
             </li>
           </ul>
           <ul className="flex space-x-6 mx-5 items-center justify-end grow">
-            {true ? ( // user isn't logged in
+            {!user ? ( // user isn't logged in
               <button
                 onClick={() => setShowLoginModal(true)}
                 className="flex items-center hover:underline transition-all"
@@ -50,12 +50,12 @@ export default function Nav() {
               </button>
             ) : (
               <>
-                <Link href={`/profile/${session.user.email}`}>
+                <Link href={`/profile/${user.uid}`}>
                   <a>Profile</a>
                 </Link>
                 <button
                   className="flex items-center hover:underline transition-all"
-                  onClick={() => signOut()}
+                  onClick={() => signOut(auth)}
                 >
                   <span className="material-icons">account_circle</span>
                   <span className="ml-1">Log out</span>
