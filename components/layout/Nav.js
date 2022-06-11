@@ -8,7 +8,7 @@ import LoginCard from "../pages/login/LoginCard";
 
 export default function Nav() {
   const [showLoginModal, setShowLoginModal] = useState();
-  const { user } = useAuth();
+  const user = useAuth();
 
   return (
     <>
@@ -24,7 +24,7 @@ export default function Nav() {
           <ul className="flex mx-5 space-x-6 items-center grow">
             <li className="">
               <Link href="/">
-                <a className="flex items-center hover:underline transition-all">
+                <a className="flex items-center transition-all">
                   <span className="material-icons">home</span>
                   <span className="ml-1">Hem</span>
                 </a>
@@ -32,7 +32,7 @@ export default function Nav() {
             </li>
             <li>
               <Link href="/annonser">
-                <a className="flex items-center hover:underline transition-all">
+                <a className="flex items-center transition-all">
                   <span className="material-icons">assignment</span>
                   <span className="ml-1">Annonser</span>
                 </a>
@@ -43,21 +43,24 @@ export default function Nav() {
             {!user ? ( // user isn't logged in
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="flex items-center hover:underline transition-all"
+                className="flex items-center transition-all"
               >
                 <span className="material-icons">account_circle</span>
                 <span className="ml-1">Log in</span>
               </button>
             ) : (
               <>
-                <Link href={`/profile/${user.uid}`}>
-                  <a>Profile</a>
-                </Link>
+                <div className="flex items-center">
+                  <span className="material-icons">account_circle</span>
+                  <Link href={`/profile/${user.uid}`}>
+                    <a className="ml-1">{user.userName}</a>
+                  </Link>
+                </div>
                 <button
-                  className="flex items-center hover:underline transition-all"
+                  className="flex items-center transition-all"
                   onClick={() => signOut(auth)}
                 >
-                  <span className="material-icons">account_circle</span>
+                  <span className="material-icons">logout</span>
                   <span className="ml-1">Log out</span>
                 </button>
               </>
