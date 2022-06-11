@@ -17,7 +17,7 @@ export default function Nav() {
         opened={showLoginModal}
         onClose={() => setShowLoginModal(false)}
       >
-        <LoginCard />
+        <LoginCard setShowLoginModal={setShowLoginModal} />
       </Modal>
       <nav className="h-16 bg-primary-800 flex justify-center fixed z-40 w-full font-bold text-primary-100">
         <div className="flex h-full max-w-7xl grow">

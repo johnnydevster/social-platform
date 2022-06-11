@@ -1,13 +1,20 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import { signIn } from "../../../lib/firebase-client/firebase-client-firestore";
 
-export default function LoginCard() {
-  const [userName, setUsername] = useState();
+export default function LoginCard({ setShowLoginModal }) {
+  const [email, setUsername] = useState();
   const [password, setPassword] = useState();
 
-  function handleSubmit(e) {
-    // do stuff with firebase
+  async function handleSubmit(e) {
     e.preventDefault();
+
+    const uid = await signIn(email, password);
+    if (uid) {
+      setUsername("");
+      setPassword("");
+      setShowLoginModal(false);
+    }
   }
   return (
     <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -44,6 +51,7 @@ export default function LoginCard() {
                 onChange={(e) => {
                   setUsername(e.target.value);
                 }}
+                value={email}
                 id="email-address"
                 name="email"
                 type="email"
@@ -61,6 +69,7 @@ export default function LoginCard() {
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
+                value={password}
                 id="password"
                 name="password"
                 type="password"
