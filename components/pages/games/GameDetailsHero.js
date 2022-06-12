@@ -42,6 +42,7 @@ export default function GameDetailsHero({ gameData, fallback }) {
       <div className="md:p-4 h-full md:flex">
         <div className="bg-primary-400 h-80 w-56 md:rounded relative flex-shrink-0 mx-auto my-2 md:my-0">
           <Image
+            alt="game cover"
             priority
             layout="fill"
             src={gameData?.cover?.url || null}

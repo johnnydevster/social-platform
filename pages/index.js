@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Layout from "../components/layout/Layout";
 import Sidebar from "../components/layout/sidebar/Sidebar";
 import TopGames from "../components/modules/TopGames";
@@ -5,12 +6,17 @@ import getTopGames from "../utils/getTopGames";
 
 export default function Home({ topGames }) {
   return (
-    <Layout>
-      <Sidebar />
-      <div className="rounded-lg col-span-3 lg:col-span-2">
-        <TopGames topGames={topGames} />
-      </div>
-    </Layout>
+    <>
+      <Head>
+        <title>BroGamers</title>
+      </Head>
+      <Layout>
+        <Sidebar />
+        <div className="rounded-lg col-span-3 lg:col-span-2">
+          <TopGames topGames={topGames} />
+        </div>
+      </Layout>
+    </>
   );
 }
 

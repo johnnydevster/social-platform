@@ -13,7 +13,12 @@ export default function GameDetailsScreenshots({ fallback, screenshots }) {
       {screenshots?.map((screenshot) => {
         return (
           <div key={screenshot.id} className="w-full h-[480px] relative">
-            <Image objectFit="cover" layout="fill" src={screenshot.url} />
+            <Image
+              alt="game screenshot"
+              objectFit="cover"
+              layout="fill"
+              src={screenshot.url}
+            />
           </div>
         );
       })}

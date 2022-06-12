@@ -3,12 +3,13 @@ import { signOut } from "firebase/auth";
 import Link from "next/link";
 import { useState } from "react";
 import { auth } from "../../lib/firebase-client/firebase-client-config";
-import { useAuth } from "../../lib/hooks/useAuth";
+import { useAuth } from "../../lib/hooks/authContext";
+import { useFirebaseAuth } from "../../lib/hooks/useFirebaseAuth";
 import LoginCard from "../pages/login/LoginCard";
 
 export default function Nav() {
   const [showLoginModal, setShowLoginModal] = useState();
-  const user = useAuth();
+  const { user, loading } = useAuth();
 
   return (
     <>
@@ -53,7 +54,7 @@ export default function Nav() {
                 <div className="flex items-center">
                   <span className="material-icons">account_circle</span>
                   <Link href={`/profile/${user.uid}`}>
-                    <a className="ml-1">{user.userName}</a>
+                    <a className="ml-1">{user.email}</a>
                   </Link>
                 </div>
                 <button
