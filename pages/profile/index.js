@@ -5,6 +5,7 @@ import Layout from "../../components/layout/Layout";
 import ModuleWrapper from "../../components/layout/ModuleWrapper";
 import Sidebar from "../../components/layout/sidebar/Sidebar";
 import Heading from "../../components/layout/utils/Heading";
+import { auth } from "../../lib/firebase-client/firebase-client-config";
 import { useAuth } from "../../lib/hooks/authContext";
 
 export default function User({}) {
@@ -40,7 +41,7 @@ export default function User({}) {
         <ModuleWrapper>
           <Heading size="xl" className="font-bold">
             User profile for
-            <span className="font-semibold"> {}</span>
+            <span className="font-semibold"> {user.userName}</span>
           </Heading>
         </ModuleWrapper>
       </Layout>

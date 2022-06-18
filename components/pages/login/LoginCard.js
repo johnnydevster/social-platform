@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { signIn } from "../../../lib/firebase-client/firebase-client-firestore";
 
 export default function LoginCard({ setShowLoginModal }) {
   const [email, setUsername] = useState();
   const [password, setPassword] = useState();
+  const router = useRouter();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -14,10 +16,11 @@ export default function LoginCard({ setShowLoginModal }) {
       setUsername("");
       setPassword("");
       setShowLoginModal(false);
+      router.push("/");
     }
   }
   return (
-    <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">

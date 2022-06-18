@@ -53,8 +53,8 @@ export default function Nav() {
               <>
                 <div className="flex items-center">
                   <span className="material-icons">account_circle</span>
-                  <Link href={`/profile/${user.uid}`}>
-                    <a className="ml-1">{user.email}</a>
+                  <Link href={`/profile`}>
+                    <a className="ml-1">{user.userName}</a>
                   </Link>
                 </div>
                 <button
