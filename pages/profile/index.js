@@ -1,6 +1,8 @@
-import { LoadingOverlay } from "@mantine/core";
+import { Divider, LoadingOverlay } from "@mantine/core";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import CardWrapper from "../../components/layout/CardWrapper";
 import Layout from "../../components/layout/Layout";
 import ModuleWrapper from "../../components/layout/ModuleWrapper";
 import Sidebar from "../../components/layout/sidebar/Sidebar";
@@ -39,10 +41,31 @@ export default function User({}) {
       <Layout>
         <Sidebar />
         <ModuleWrapper>
-          <Heading size="xl" className="font-bold">
-            User profile for
-            <span className="font-semibold"> {user.userName}</span>
+          <Heading size="lg" className="font-bold">
+            User settings
           </Heading>
+          <CardWrapper className="my-4">
+            <div className="flex">
+              <div className="h-48 w-48 bg-gray-200 rounded-full"></div>
+              <div className="px-5 flex flex-col gap-4 justify-center">
+                <div>
+                  <Heading size="lg" className="font-bold">
+                    {user.userName}
+                  </Heading>
+                  <span className={"text-gray-500 text-sm"}>{user.email}</span>
+                </div>
+                <div>
+                  <Heading size="lg" className="font-bold">
+                    Account created
+                  </Heading>
+                  <span className={"text-gray-500 text-sm"}>
+                    {user.accountCreated}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </CardWrapper>
+          <Divider></Divider>
         </ModuleWrapper>
       </Layout>
     );
