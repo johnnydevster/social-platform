@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "emulators": "firebase emulators:start --import=./emudata"
   },
   "dependencies": {
     "@mantine/core": "^4.2.7",

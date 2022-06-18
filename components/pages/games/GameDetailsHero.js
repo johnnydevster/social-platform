@@ -1,5 +1,6 @@
 import { Badge, Skeleton } from "@mantine/core";
 import Image from "next/image";
+import Heading from "../../layout/utils/Heading";
 
 export default function GameDetailsHero({ gameData, fallback }) {
   const developers =
@@ -52,16 +53,18 @@ export default function GameDetailsHero({ gameData, fallback }) {
         <ul className="p-4 md:p-6">
           <li className="mb-3 flex space-x-6">
             <div>
-              <h2 className="font-bold text-gray-600">Released</h2>
+              <Heading className="font-bold text-gray-600">Released</Heading>
               <span>{gameData.release_dates[0].human}</span>
             </div>
             <div>
-              <h2 className="font-bold text-gray-600">Developed by</h2>
+              <Heading className="font-bold text-gray-600">
+                Developed by
+              </Heading>
               <span>{developers[0]}</span>
             </div>
           </li>
           <li>
-            <h2 className="font-bold text-gray-600">Summary</h2>
+            <Heading className="font-bold text-gray-600">Summary</Heading>
             <p className="">{gameData?.summary || null}</p>
           </li>
         </ul>
