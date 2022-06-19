@@ -44,9 +44,9 @@ export default function User({}) {
           <Heading size="lg" className="font-bold">
             User settings
           </Heading>
-          <CardWrapper className="my-4">
+          <CardWrapper className="my-6">
             <div className="flex">
-              <div className="h-48 w-48 bg-gray-200 rounded-full"></div>
+              <div className="h-40 w-40 bg-gray-200 rounded-full flex-shrink-0"></div>
               <div className="px-5 flex flex-col gap-4 justify-center">
                 <div>
                   <Heading size="lg" className="font-bold">

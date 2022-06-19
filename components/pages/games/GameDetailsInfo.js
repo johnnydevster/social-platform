@@ -1,4 +1,5 @@
 import { Badge, Skeleton } from "@mantine/core";
+import Heading from "../../layout/utils/Heading";
 
 export default function GameDetailsInfo({ fallback, gameData }) {
   let officialWebsite = gameData?.websites?.filter((website) => {
@@ -19,7 +20,7 @@ export default function GameDetailsInfo({ fallback, gameData }) {
   return (
     <ul className="flex flex-col space-y-4 w-2/3">
       <li>
-        <h3 className="font-semibold">Platforms</h3>
+        <Heading className="font-semibold mb-1 lg:mb-0">Platforms</Heading>
         {gameData?.platforms?.map((platform) => {
           return (
             <Badge
@@ -32,7 +33,7 @@ export default function GameDetailsInfo({ fallback, gameData }) {
         }) || null}
       </li>
       <li>
-        <h3 className="font-semibold">Genre(s)</h3>
+        <Heading className="font-semibold mb-1 lg:mb-0">Genre(s)</Heading>
         {gameData?.genres?.map((genre) => {
           return (
             <Badge
@@ -46,7 +47,7 @@ export default function GameDetailsInfo({ fallback, gameData }) {
       </li>
       {officialWebsite && (
         <li>
-          <h3 className="font-semibold">Website</h3>
+          <Heading className="font-semibold">Website</Heading>
           <a
             className="text-blue-500 hover:underline font-semibold"
             target="_none"

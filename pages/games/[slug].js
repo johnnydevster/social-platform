@@ -8,7 +8,7 @@ import getTopGames from "../../utils/getTopGames";
 import GameDetailsHero from "../../components/pages/games/GameDetailsHero";
 import GameDetailsScreenshots from "../../components/pages/games/GameDetailsScreenshots";
 import GameDetailsOtherGames from "../../components/pages/games/GameDetailsOtherGames";
-import { Skeleton } from "@mantine/core";
+import { Divider, Skeleton } from "@mantine/core";
 import Head from "next/head";
 import GameDetailsInfo from "../../components/pages/games/GameDetailsInfo";
 import GameDetailsRatings from "../../components/pages/games/GameDetailsRatings";
@@ -24,7 +24,7 @@ export default function Game({ gameData }) {
       <Sidebar />
       <div className="rounded-lg col-span-3 lg:col-span-2">
         <GameDetailsHero fallback={router.isFallback} gameData={gameData} />
-        <div className="flex p-2 md:p-6">
+        <div className="flex px-2 py-4 md:px-6">
           <GameDetailsInfo fallback={router.isFallback} gameData={gameData} />
           <div className="w-1/2 flex items-center justify-center">
             {router.isFallback ? (
@@ -41,6 +41,7 @@ export default function Game({ gameData }) {
             )}
           </div>
         </div>
+
         <GameDetailsRatings />
         <GameDetailsScreenshots
           fallback={router.isFallback}

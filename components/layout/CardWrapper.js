@@ -3,5 +3,5 @@ export default function CardWrapper({
   children,
   className,
 }) {
-  return <Wrapper className={`p-4 ${className}`}>{children}</Wrapper>;
+  return <Wrapper className={`p-2 sm:p-4 ${className}`}>{children}</Wrapper>;
 }
