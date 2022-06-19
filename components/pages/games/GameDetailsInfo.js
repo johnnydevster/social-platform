@@ -47,7 +47,7 @@ export default function GameDetailsInfo({ fallback, gameData }) {
       </li>
       {officialWebsite && (
         <li>
-          <Heading className="font-semibold">Website</Heading>
+          <Heading className="font-semibold mb-1 lg:mb-0">Website</Heading>
           <a
             className="text-blue-500 hover:underline font-semibold"
             target="_none"

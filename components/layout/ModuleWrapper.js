@@ -6,7 +6,7 @@ export default function ModuleWrapper({
   className,
 }) {
   return (
-    <Wrapper className={`px-2 pt-2 pb-1 col-span-3 lg:col-span-2 ${className}`}>
+    <Wrapper className={`px-2 pt-2 pb-1 col-span-5 lg:col-span-4 ${className}`}>
       {children}
     </Wrapper>
   );

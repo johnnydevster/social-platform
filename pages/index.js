@@ -13,7 +13,7 @@ export default function Home({ topGames }) {
       </Head>
       <Layout>
         <Sidebar />
-        <ModuleWrapper className="lg:col-span-2 w-full">
+        <ModuleWrapper>
           <TopGames topGames={topGames} />
         </ModuleWrapper>
       </Layout>

@@ -12,6 +12,7 @@ import { Divider, Skeleton } from "@mantine/core";
 import Head from "next/head";
 import GameDetailsInfo from "../../components/pages/games/GameDetailsInfo";
 import GameDetailsRatings from "../../components/pages/games/GameDetailsRatings";
+import ModuleWrapper from "../../components/layout/ModuleWrapper";
 
 export default function Game({ gameData }) {
   const router = useRouter();
@@ -22,7 +23,7 @@ export default function Game({ gameData }) {
         <title>{gameData?.name}</title>
       </Head>
       <Sidebar />
-      <div className="rounded-lg col-span-3 lg:col-span-2">
+      <ModuleWrapper>
         <GameDetailsHero fallback={router.isFallback} gameData={gameData} />
         <div className="flex px-2 py-4 md:px-6">
           <GameDetailsInfo fallback={router.isFallback} gameData={gameData} />
@@ -48,7 +49,7 @@ export default function Game({ gameData }) {
           screenshots={gameData?.screenshots}
         />
         <GameDetailsOtherGames />
-      </div>
+      </ModuleWrapper>
     </Layout>
   );
 }

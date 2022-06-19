@@ -11,10 +11,10 @@ export default function Button({
 
   switch (buttonType) {
     case "primary":
-      buttonClass = "bg-indigo-500 hover:bg-indigo-400";
+      buttonClass = "bg-blue-500 hover:bg-blue-400";
       break;
     case "secondary":
-      buttonClass = "bg-indigo-100 hover:bg-indigo-50 text-indigo-500";
+      buttonClass = "bg-blue-100 hover:bg-blue-50 text-blue-500";
       break;
   }
 
